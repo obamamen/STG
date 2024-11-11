@@ -1,0 +1,2 @@
+# STG
+simple typing game
