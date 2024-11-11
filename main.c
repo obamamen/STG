@@ -6,7 +6,7 @@
 
 #include <time.h>
 
-#define MAX_WORDS 40
+#define MAX_WORDS 1000
 #define MAX_WORD_LENGTH 20
 
 int readWordList(const char *filename, char words[MAX_WORDS][MAX_WORD_LENGTH]) {
@@ -92,7 +92,19 @@ int main() {
 
     char* text = words1D;
 
-    size_t textLength = strlen(text);
+    size_t textLength = 60;
+    int currentWord = 0;
+    for (int i = 0; i < strlen(text); i++) {
+        if (text[i] == ' ') {
+            currentWord++;
+        }
+        if (currentWord == textLength) {
+            textLength = i;
+            break;
+        }
+    }
+
+
     char* input = calloc(textLength + 1, sizeof(char));
     
     unsigned int inputPointer = 0;
